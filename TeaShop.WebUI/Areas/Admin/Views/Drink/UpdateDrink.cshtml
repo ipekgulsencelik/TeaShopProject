@@ -1,0 +1,36 @@
+﻿@model UpdateDrinkDTO
+
+@{
+    ViewData["Title"] = "UpdateDrink";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>İçecek Güncelleme Sayfası</h1>
+<br />
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="DrinkID" />
+    <label>İçecek Adı</label>
+    <input type="text" asp-for="DrinkName" class="form-control" d="floatingInput" placeholder="İçecek Adı" />
+    <br />
+    <label>İçecek Fiyatı</label>
+    <input type="text" asp-for="DrinkPrice" class="form-control" id="floatingInput" placeholder="İçecek Fiyatı" />
+    <br />
+    <label>İçecek Görseli</label>
+    @* <input type="text" asp-for="DrinkImageURL" class="form-control" /> *@
+    <br />
+    <img src="~/images/@Model.DrinkImageURL" width="90" />
+    <br />
+    <br />
+    <input type="file" name="image" />
+    <br />
+    <br />
+    <input id="IsHome" asp-for="IsHome" type="checkbox" />
+    <label for="IsHome">Ana Sayfa</label>
+    <br />
+    <br />
+    <input id="Status" asp-for="DrinkStatus" type="checkbox" />
+    <label for="Status">Durum</label>
+    <br />
+    <br />
+    <button class="btn btn-success"><i class="fas fa-pen"></i> İçeceği Güncelle</button>
+</form>

@@ -7,6 +7,9 @@ using TeaShop.DataAccessLayer.EntityFramework;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IDrinkDAL, EFDrinkDAL>();
+builder.Services.AddScoped<IDrinkService, DrinkManager>();
+
 builder.Services.AddScoped<ITestimonialDAL, EFTestimonialDAL>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 

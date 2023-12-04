@@ -1,4 +1,4 @@
-﻿@model List<ResultTestimonialDTO>
+﻿@model List<ResultDrinkDTO>
 
 @{
     ViewData["Title"] = "Index";
@@ -14,7 +14,7 @@
 	<div class="col-sm-12">
 		<div class="card">
 			<div class="card-header">
-				<h5>Referans İşlemleri</h5>
+				<h5>İçecek İşlemleri</h5>
 				<div class="card-header-right">
 					<div class="btn-group card-option">
 						<button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -36,8 +36,8 @@
 						<tr>
 							<th>#</th>
 							<th>Görsel</th>
-							<th>Referans Adı</th>
-							<th>Yorum</th>
+							<th>İçecek Adı</th>
+							<th>İçecek Fiyatı</th>
 							<th>Ana Sayfa</th>
 							<th>Durum</th>
 							<th>Sil</th>
@@ -48,81 +48,51 @@
 							count++;
 							<tr>
 								<td>@count</td>
-								<td><img src="~/images/@item.TestimonialImageURL" style="height:50px; width:50px; border-radius:50;" /></td>
-								<td>@item.TestimonialName</td>
-								@if (@item.TestimonialComment == null || @item.TestimonialComment.Length <= 30)
-								{
-									<td>@item.TestimonialComment</td>
-								}
-								else
-								{
-									<td>
-										<a href="#" id="CommentBtn"
-									   onclick="return commentTestimonial('@item.TestimonialComment', '@item.TestimonialID')">
-										@item.TestimonialComment.Substring(0, 10)...
-										</a>
-									</td>
-								}
+								<td><img src="~/images/@item.DrinkImageURL" style="height:50px; width:50px;" /></td>
+								<td>@item.DrinkName</td>
+								<td>@item.DrinkPrice</td>
 								<td>
 									@{
 										if (item.IsHome == true)
 										{
-											<button onclick="updateHomeStatus(@item.TestimonialID)" type="submit" class="btn btn-success">Ekle</button>
+											<button onclick="updateHomeStatus(@item.DrinkID)" type="submit" class="btn btn-success">Ekle</button>
 										}
 										else
 										{
-											<button onclick="updateHomeStatus(@item.TestimonialID)" type="submit" class="btn btn-danger">Çıkar</button>
+											<button onclick="updateHomeStatus(@item.DrinkID)" type="submit" class="btn btn-danger">Çıkar</button>
 										}
 									}
 								</td>
-							<td>
-								@{
-									if (item.TestimonialStatus == true)
-									{
-										<button onclick="updateStatus(@item.TestimonialID)" type="submit" class="btn btn-success">Aktif</button>
+								<td>
+									@{
+										if (item.DrinkStatus == true)
+										{
+											<button onclick="updateStatus(@item.DrinkID)" type="submit" class="btn btn-success">Aktif</button>
+										}
+										else
+										{
+											<button onclick="updateStatus(@item.DrinkID)" type="submit" class="btn btn-danger">Pasif</button>
+										}
 									}
-									else
-									{
-										<button onclick="updateStatus(@item.TestimonialID)" type="submit" class="btn btn-danger">Pasif</button>
-									}
-								}
-							</td>
-							<td><button onclick="deleteTestimonial(@item.TestimonialID)" type="submit" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Sil</button></td>
-							<td><a href="/Admin/Testimonial/UpdateTestimonial/@item.TestimonialID" class="btn btn-outline-success"><i class="fas fa-pen"></i> Güncelle</a></td>
-						</tr>
-					}
-				</table>
+								</td>
+								<td><button onclick="deleteDrink(@item.DrinkID)" type="submit" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Sil</button></td>
+								<td><a href="/Admin/Drink/UpdateDrink/@item.DrinkID" class="btn btn-outline-success"><i class="fas fa-pen"></i> Güncelle</a></td>
+							</tr>
+						}
+					</table>
 				}
 				else
 				{
-					<p>Kayıtlı Herhangi Bir Referans Verisi bulunmamaktatir.</p>
+					<p>Kayıtlı Herhangi Bir İçecek Verisi Bulunmamaktatir.</p>
 				}
-				<a href="/Admin/Testimonial/CreateTestimonial/" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Yeni Referans Girişi</a>
+				<a href="/Admin/Drink/CreateDrink/" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Yeni İçecek Girişi</a>
 			</div>
 		</div>
 	</div>
-	<!-- [ sample-page ] end -->
 </div>
 
 <script>
-	function commentTestimonial(comment, id) {
-		Swal.fire({
-			title: 'Açıklama',
-			text: comment,
-			icon: 'success',
-			showCancelButton: true,
-			confirmButtonText: 'Güncelle',
-			cancelButtonText: 'Tamam'
-		}).then((result) => {
-			if (result.isConfirmed) {
-				window.location.href = "/Admin/Testimonial/UpdateTestimonial?id=" + id;
-			}
-		});
-	}
-</script>
-
-<script>
-	function deleteTestimonial(id) {
+	function deleteDrink(id) {
 		Swal.fire({
 			title: 'Silmek istediğinize emin misiniz?',
 			text: 'Bu öğeyi silerseniz geri alamazsınız!',
@@ -132,7 +102,7 @@
 			cancelButtonText: 'İptal'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = "/Admin/Testimonial/DeleteTestimonial?id=" + id;
+				window.location.href = "/Admin/Drink/DeleteDrink?id=" + id;
 			}
 		});
 	}
@@ -149,7 +119,7 @@
 			cancelButtonText: 'İptal'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = "/Admin/Testimonial/ChangeHomeStatus?id=" + id;
+				window.location.href = "/Admin/Drink/ChangeHomeStatus?id=" + id;
 			}
 		});
 	}
@@ -166,7 +136,7 @@
 			cancelButtonText: 'İptal'
 		}).then((result) => {
 			if (result.isConfirmed) {
-				window.location.href = "/Admin/Testimonial/ChangeTestimonialStatus?id=" + id;
+				window.location.href = "/Admin/Drink/ChangeDrinkStatus?id=" + id;
 			}
 		});
 	}

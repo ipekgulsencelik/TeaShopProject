@@ -1,14 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TeaShop.EntityLayer.Concrete;
 
 namespace TeaShop.DataAccessLayer.Concrete
 {
-    public class TeaContext : DbContext
+	public class TeaContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -16,5 +11,6 @@ namespace TeaShop.DataAccessLayer.Concrete
         }
 
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Drink> Drinks { get; set; }
     }
 }
