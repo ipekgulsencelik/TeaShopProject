@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("_HeaderPartial.cshtml", "AdminLayout")
+
+<body>
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div>
+
+	@await Html.PartialAsync("_SidebarPartial.cshtml", "AdminLayout")
+
+	@await Html.PartialAsync("_NavbarPartial.cshtml", "AdminLayout")
+
+	<div class="pcoded-main-container">
+		<div class="pcoded-content">
+
+			@await Html.PartialAsync("_ContentPartial.cshtml", "AdminLayout")
+
+			@RenderBody()
+
+		</div>
+	</div>
+
+	@await Html.PartialAsync("_ScriptPartial.cshtml", "AdminLayout")
+
+</body>
+</html>
