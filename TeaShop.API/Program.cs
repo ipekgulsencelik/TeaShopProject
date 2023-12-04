@@ -10,6 +10,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IDrinkDAL, EFDrinkDAL>();
 builder.Services.AddScoped<IDrinkService, DrinkManager>();
 
+builder.Services.AddScoped<IQuestionDAL, EFQuestionDAL>();
+builder.Services.AddScoped<IQuestionService, QuestionManager>();
+
 builder.Services.AddScoped<ITestimonialDAL, EFTestimonialDAL>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 

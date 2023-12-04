@@ -12,5 +12,6 @@ namespace TeaShop.DataAccessLayer.Concrete
 
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Drink> Drinks { get; set; }
+        public DbSet<Question> Questions { get; set; }
     }
 }

@@ -1,0 +1,27 @@
+﻿@model UpdateQuestionDTO
+
+@{
+    ViewData["Title"] = "UpdateQuestion";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Soru-Cevap Güncelleme Sayfası</h1>
+<br />
+<form method="post">
+    <input type="hidden" asp-for="QuestionID" />
+    <label>Soru Yazınız</label>
+    <input type="text" asp-for="QuestionDetail" class="form-control" id="floatingInput" placeholder="Soru" required />
+    <br />
+    <label>Cevap Yazınız</label>
+    <input type="text" asp-for="AnswerDetail" class="form-control" id="floatingInput" placeholder="Cevap" required />
+    <br />
+    <input id="IsHome" asp-for="IsHome" type="checkbox" />
+    <label for="IsHome">Ana Sayfa</label>
+    <br />
+    <br />
+    <input id="QuestionStatus" asp-for="QuestionStatus" type="checkbox" />
+    <label for="QuestionStatus">Durum</label>
+    <br />
+    <br />
+    <button class="btn btn-success"><i class="fas fa-save"></i> Soru-Cevap Güncelle</button>
+</form>
