@@ -31,6 +31,9 @@ builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 builder.Services.AddScoped<ITestimonialDAL, EFTestimonialDAL>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 
+builder.Services.AddScoped<IStatisticsDAL, EFStatisticsDAL>();
+builder.Services.AddScoped<IStatisticsService, StatisticsManager>();
+
 builder.Services.AddDbContext<TeaContext>();
 
 builder.Services.AddControllers();
