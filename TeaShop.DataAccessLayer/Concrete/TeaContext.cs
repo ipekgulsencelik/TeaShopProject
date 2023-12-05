@@ -11,7 +11,12 @@ namespace TeaShop.DataAccessLayer.Concrete
         }
 
         public DbSet<Testimonial> Testimonials { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<Drink> Drinks { get; set; }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<Map> Maps { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<SocialMedia> SocialMedias { get; set; }
+        public DbSet<Subscribe> Subscribes { get; set; }
     }
 }

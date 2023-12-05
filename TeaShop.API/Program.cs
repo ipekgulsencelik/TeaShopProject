@@ -7,11 +7,26 @@ using TeaShop.DataAccessLayer.EntityFramework;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IContactDAL, EFContactDAL>();
+builder.Services.AddScoped<IContactService, ContactManager>();
+
 builder.Services.AddScoped<IDrinkDAL, EFDrinkDAL>();
 builder.Services.AddScoped<IDrinkService, DrinkManager>();
 
+builder.Services.AddScoped<IMapDAL, EFMapDAL>();
+builder.Services.AddScoped<IMapService, MapManager>();
+
+builder.Services.AddScoped<IMessageDAL, EFMessageDAL>();
+builder.Services.AddScoped<IMessageService, MessageManager>();
+
 builder.Services.AddScoped<IQuestionDAL, EFQuestionDAL>();
 builder.Services.AddScoped<IQuestionService, QuestionManager>();
+
+builder.Services.AddScoped<ISocialMediaDAL, EFSocialMediaDAL>();
+builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
+
+builder.Services.AddScoped<ISubscribeDAL, EFSubscribeDAL>();
+builder.Services.AddScoped<ISubscribeService, SubscribeManager>();
 
 builder.Services.AddScoped<ITestimonialDAL, EFTestimonialDAL>();
 builder.Services.AddScoped<ITestimonialService, TestimonialManager>();

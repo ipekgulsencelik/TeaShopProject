@@ -1,19 +1,36 @@
 ﻿@model List<TeaShop.WebUI.DTOs.TestimonialDTOs.ResultTestimonialDTO>
 
+@{
+    var active = "";
+    int count = 1;
+}
+
 <div class="clients_section layout_padding">
     <div id="custum_slider" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @foreach (var item in Model)
             {
-                <div class="carousel-item active">
+                @* if(item.TestimonialID==1){ active = "active"; } else{ active = ""; } *@
+
+                if (count == 1)
+                {
+                    active = "active";
+                    count++;
+                }
+                else
+                {
+                    active = "";
+                }
+
+                <div class="carousel-item @active">
                     <div class="container">
                         <h1 class="clients_taital">Client's Testimonial</h1>
                         <p class="clients_text">
                             @item.TestimonialComment
                         </p>
-                        <div class="client_img"><img src="~/images/@item.TestimonialImageURL"></div>
+                        <div class="client_img"><img src="~/teab-1.0.0/images/client-img.png"></div>
                         <h1 class="louis_text">@item.TestimonialName</h1>
-                        <h1 class="smyth_text">@item.TestimonialTitle</h1>
+                        <h1 class="smyth_text">Müşteri</h1>
                         <div class="border"></div>
                     </div>
                 </div>
@@ -27,3 +44,38 @@
         </a>
     </div>
 </div>
+
+
+
+@* <div class="clients_section layout_padding">
+    <div id="custum_slider" class="carousel slide" data-ride="carousel">
+        <h1 class="clients_taital">Client's Testimonial</h1>
+        <div class="carousel-inner">
+         @foreach (var item in Model)
+            {
+        
+           
+                <div class="carousel-item active">
+                    <div class="container">
+                        
+                        <p class="clients_text">
+                            @item.TestimonialComment
+                        </p>
+                        <div class="client_img"><img src="~/images/@item.TestimonialImageURL" style="height:75px;width:75px"></div>
+                        <h1 class="louis_text">@item.TestimonialName</h1>
+                        <h1 class="smyth_text">@item.TestimonialTitle</h1>
+                        <div class="border"></div>
+                    </div>
+                </div>
+            
+     
+        }
+        </div>
+        <a class="carousel-control-prev" href="#custum_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#custum_slider" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i>
+        </a>
+    </div>
+</div> *@

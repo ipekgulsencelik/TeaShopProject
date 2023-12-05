@@ -66,18 +66,8 @@
 
         <div class="footer_section layout_padding">
             <div class="container">
-                <div class="newsletter_section">
-                    <div class="newsletter_left">
-                        <div class="footer_logo"><img src="~/teab-1.0.0/images/footer-logo.png"></div>
-                    </div>
-                    <div class="newsletter_right">
-                        <h5 class="newsletter_taital">Subscribe Newsletter</h5>
-                        <div class="subscribe_main">
-                            <input type="text" class="mail_text" placeholder="Enter your email" name="text">
-                            <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-                        </div>
-                    </div>
-                </div>
+                @await Html.PartialAsync("~/Views/Default/_SubscribePartial.cshtml")
+                
                 <div class="footer_taital_main">
                     <div class="row">
                         <div class="col-lg-3 col-sm-6">
