@@ -1,4 +1,11 @@
-﻿
-@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model TeaShop.WebUI.DTOs.MapDTOs.ResultMapDTO
+
+<div class="col-md-6">
+    <div class="map_main">
+        <div class="map-responsive">
+            <iframe src="@Model.LocationURL"
+                    width="600" height="600" frameborder="0" style="border:0; width: 100%;"
+                    allowfullscreen=""></iframe>
+        </div>
+    </div>
+</div>

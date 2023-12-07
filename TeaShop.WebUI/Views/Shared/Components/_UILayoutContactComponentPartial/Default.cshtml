@@ -1,0 +1,28 @@
+﻿@model TeaShop.WebUI.DTOs.ContactDTOs.ResultContactDTO
+
+<div class="col-lg-3 col-sm-6">
+    <h2 class="useful_text">Contact us</h2>
+    <div class="addres_link">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="~/teab-1.0.0/images/map-icon.png"><span class="padding_left_10">
+                        @Model.Address
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="~/teab-1.0.0/images/call-icon.png"><span class="padding_left_10">
+                        @Model.Phone
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="~/teab-1.0.0/images/mail-icon.png"><span class="padding_left_10">@Model.Email</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TeaShop.DataAccessLayer.Concrete;
 
@@ -11,9 +12,11 @@ using TeaShop.DataAccessLayer.Concrete;
 namespace TeaShop.DataAccessLayer.Migrations
 {
     [DbContext(typeof(TeaContext))]
-    partial class TeaContextModelSnapshot : ModelSnapshot
+    [Migration("20231206195635_mig_add_about")]
+    partial class mig_add_about
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,25 +33,19 @@ namespace TeaShop.DataAccessLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AboutID"));
 
-                    b.Property<string>("AboutDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AboutImageURL")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("AboutStatus")
                         .HasColumnType("bit");
 
-                    b.Property<string>("AboutTitle")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsFooter")
-                        .HasColumnType("bit");
+                    b.Property<string>("ImageURL")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsHome")
-                        .HasColumnType("bit");
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("AboutID");
 

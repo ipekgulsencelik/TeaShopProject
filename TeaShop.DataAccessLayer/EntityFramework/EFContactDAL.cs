@@ -30,7 +30,7 @@ namespace TeaShop.DataAccessLayer.EntityFramework
         public Contact GetActiveContact()
         {
             var context = new TeaContext();
-            var values = context.Contacts.Where(x => x.ContactStatus == true).OrderByDescending(x => x.ContactID).Take(1);
+            var values = context.Contacts.Where(x => x.ContactStatus == true).OrderByDescending(x => x.ContactID).Take(1).FirstOrDefault();
             return (Contact)values;
         }
     }

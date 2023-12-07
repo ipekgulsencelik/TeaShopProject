@@ -101,34 +101,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6">
-                            <h2 class="useful_text">Contact us</h2>
-                            <div class="addres_link">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <img src="~/teab-1.0.0/images/map-icon.png"><span class="padding_left_10">
-                                                No.123 Chalingt
-                                                Gates
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="~/teab-1.0.0/images/call-icon.png"><span class="padding_left_10">
-                                                +01
-                                                1234567890
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img src="~/teab-1.0.0/images/mail-icon.png"><span class="padding_left_10">demo@gmail.com</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        @await Component.InvokeAsync("_UILayoutContactComponentPartial")
                     </div>
                     <h1 class="follow_text">Follow Us</h1>
                     <div class="social_icon">
@@ -147,7 +120,7 @@
         <div class="copyright_section">
             <div class="container">
                 <p class="copyright_text">
-                    Copyright 2019 All Right Reserved By.<a href="https://html.design">
+                    Copyright @DateTime.Now.Year All Right Reserved By.<a href="https://html.design">
                         Free html
                         Templates
                     </a> Distributed by. <a href="https://themewagon.com">ThemeWagon</a>

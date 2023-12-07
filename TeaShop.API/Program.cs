@@ -7,6 +7,9 @@ using TeaShop.DataAccessLayer.EntityFramework;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddScoped<IAboutDAL, EFAboutDAL>();
+builder.Services.AddScoped<IAboutService, AboutManager>();
+
 builder.Services.AddScoped<IContactDAL, EFContactDAL>();
 builder.Services.AddScoped<IContactService, ContactManager>();
 

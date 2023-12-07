@@ -30,7 +30,7 @@ namespace TeaShop.DataAccessLayer.EntityFramework
         public Map GetActiveMap()
         {
             var context = new TeaContext();
-            var values = context.Maps.Where(x => x.MapStatus == true).OrderByDescending(x => x.MapID).Take(1);
+            var values = context.Maps.Where(x => x.MapStatus == true).OrderByDescending(x => x.MapID).Take(1).FirstOrDefault();
             return (Map)values;
         }
     }
