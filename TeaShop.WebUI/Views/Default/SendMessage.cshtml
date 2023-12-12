@@ -1,0 +1,43 @@
+﻿@model TeaShop.WebUI.DTOs.MessageDTOs.CreateMessageDTO
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<div class="col-md-6">
+    <div class="mail_main">
+        <h1 class="contact_taital">İletişime Geç!</h1>
+        <form action="/Default/SendMessage/" method="post" class="signin-form">
+            <div class="form-group">
+                <input type="text" class="email-bt" placeholder="İsim" asp-for="MessageSenderName" required />
+            </div>
+            <div class="form-group">
+                <input type="email" class="email-bt" placeholder="Mail Adresi" asp-for="MessageEmail" required />
+            </div>
+            <div class="form-group">
+                <input type="text" class="email-bt" placeholder="Konu" asp-for="MessageSubject" required />
+            </div>
+            <div class="form-group">
+                <textarea class="massage-bt" placeholder="Mesajınızı Yazınız" rows="5" id="comment" asp-for="MessageDetail" /></textarea>
+            </div>
+            @* <div class="send_btn">
+                <button class="main_bt"><a href="#" type="submit" onclick="subscribe()">Gönder</a></button>
+            </div> *@
+            <button type="submit" class="btn btn-style btn-primary w3-submit text-right" onclick="subscribe()">Gönder <i class="fas fa-paper-plane ms-2"></i></button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function subscribe() {
+        Swal.fire({
+            title: 'Mailiniz başarılı bir şekilde iletildi.',
+            icon: 'success',
+            showCancelButton: false,
+            confirmButtonText: 'Tamam'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "/Default/Index";
+            }
+        });
+    }
+</script>

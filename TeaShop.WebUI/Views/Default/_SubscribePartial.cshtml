@@ -8,11 +8,11 @@
         <div class="footer_logo"><img src="~/teab-1.0.0/images/footer-logo.png"></div>
     </div>
     <div class="newsletter_right">
-        <h5 class="newsletter_taital">Subscribe Newsletter</h5>
+        <h5 class="newsletter_taital">Son Gelişmelerden Haberdar Olun!</h5>
         <div class="subscribe_main">
-            <form method="post" asp-action="_SubscribePartial" asp-controller="Default">
+            <form action="/Default/_SubscribePartial/" method="post">
                 <input type="email" class="mail_text" placeholder="Enter your email" asp-for="Mail">
-                <button class="subscribe_bt"><a href="#" type="submit" onclick="subscribe()">Abone Ol</a></button>
+                <button type="submit" class="btn btn-style btn-primary w3-submit text-right" onclick="subscribe()">Gönder <i class="fas fa-paper-plane ms-2"></i></button>
             </form>
         </div>
     </div>
