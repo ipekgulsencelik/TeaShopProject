@@ -1,0 +1,31 @@
+﻿@model CreateBannerDTO
+
+@{
+    ViewData["Title"] = "CreateBanner";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Yeni Afiş Girişi</h1>
+<br />
+<form method="post" enctype="multipart/form-data">
+    <label>Başlık</label>
+    <input type="text" asp-for="BannerTitle" class="form-control" id="floatingInput" placeholder="Başlık..." required />
+    <br />
+    <label>Alt-Başlık</label>
+    <input type="text" asp-for="BannerSubTitle" class="form-control" id="floatingInput" placeholder="Alt-Başlık..." required />
+    <br />
+    <label>Afiş Görseli</label>
+    <br />
+    <input type="file" name="image" />
+    <br />
+    <br />
+    <input id="IsHome" asp-for="IsHome" type="checkbox" />
+    <label for="IsHome">Ana Sayfa</label>
+    <br />
+    <br />
+    <input id="BannerStatus" asp-for="BannerStatus" type="checkbox" />
+    <label for="BannerStatus">Durum</label>
+    <br />
+    <br />
+    <button class="btn btn-primary"><i class="fas fa-save"></i> Afiş Ekle</button>
+</form>

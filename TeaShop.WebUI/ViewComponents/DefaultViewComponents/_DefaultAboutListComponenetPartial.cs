@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using TeaShop.WebUI.DTOs.AboutDTOs;
-using TeaShop.WebUI.DTOs.TestimonialDTOs;
 
 namespace TeaShop.WebUI.ViewComponents.DefaultViewComponents
 {
-	public class _DefaultAboutListComponenetPartial : ViewComponent
+    public class _DefaultAboutListComponenetPartial : ViewComponent
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
 

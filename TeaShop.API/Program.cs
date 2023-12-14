@@ -37,6 +37,9 @@ builder.Services.AddScoped<ITestimonialService, TestimonialManager>();
 builder.Services.AddScoped<IStatisticsDAL, EFStatisticsDAL>();
 builder.Services.AddScoped<IStatisticsService, StatisticsManager>();
 
+builder.Services.AddScoped<IBannerDAL, EFBannerDAL>();
+builder.Services.AddScoped<IBannerService, BannerManager>();
+
 builder.Services.AddDbContext<TeaContext>();
 
 builder.Services.AddControllers();

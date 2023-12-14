@@ -1,0 +1,35 @@
+﻿@model UpdateBannerDTO
+
+@{
+    ViewData["Title"] = "UpdateBanner";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<h1>Afiş Güncelleme Sayfası</h1>
+<br />
+<form method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="BannerID" />
+    <label>Başlık</label>
+    <input type="text" asp-for="BannerTitle" class="form-control" id="floatingInput" placeholder="Başlık..." required />
+    <br />
+    <label>Alt-Başlık</label>
+    <input type="text" asp-for="BannerSubTitle" class="form-control" id="floatingInput" placeholder="Alt-Başlık..." required />
+    <br />
+    <label>Afiş Görseli</label>
+    <br />
+    <img src="~/images/@Model.BannerImageURL" width="90" />
+    <br />
+    <br />
+    <input type="file" name="image" />
+    <br />
+    <br />
+    <input id="IsHome" asp-for="IsHome" type="checkbox" />
+    <label for="IsHome">Ana Sayfa</label>
+    <br />
+    <br />
+    <input id="BannerStatus" asp-for="BannerStatus" type="checkbox" />
+    <label for="BannerStatus">Durum</label>
+    <br />
+    <br />
+    <button class="btn btn-primary"><i class="fas fa-save"></i> Afiş Güncelle</button>
+</form>

@@ -19,5 +19,6 @@ namespace TeaShop.DataAccessLayer.Concrete
         public DbSet<Message> Messages { get; set; }
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
+        public DbSet<Banner> Banners { get; set; }
     }
 }
