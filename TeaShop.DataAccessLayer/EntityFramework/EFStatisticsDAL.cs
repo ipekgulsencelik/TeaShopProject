@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TeaShop.DataAccessLayer.Abstract;
+﻿using TeaShop.DataAccessLayer.Abstract;
 using TeaShop.DataAccessLayer.Concrete;
 
 namespace TeaShop.DataAccessLayer.EntityFramework
@@ -39,6 +34,30 @@ namespace TeaShop.DataAccessLayer.EntityFramework
         {
             decimal price = _context.Drinks.Max(x => x.DrinkPrice);
             string value = _context.Drinks.Where(x => x.DrinkPrice == price).Select(x => x.DrinkName).FirstOrDefault();
+            return value;
+        }
+
+        public int MessageCount()
+        {
+            int value = _context.Messages.Count();
+            return value;
+        }
+
+        public int QuestionCount()
+        {
+            int value = _context.Questions.Count();
+            return value;
+        }
+
+        public int SubscriberCount()
+        {
+            int value = _context.Subscribes.Count();
+            return value;
+        }
+
+        public int TestimonialCount()
+        {
+            int value = _context.Testimonials.Count();
             return value;
         }
     }

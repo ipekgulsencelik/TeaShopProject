@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TeaShop.BusinessLayer.Abstract;
+﻿using TeaShop.BusinessLayer.Abstract;
 using TeaShop.DataAccessLayer.Abstract;
 
 namespace TeaShop.BusinessLayer.Concrete
@@ -35,6 +30,26 @@ namespace TeaShop.BusinessLayer.Concrete
         public string TMaxDrinkPrice()
         {
             return _statisticsDAL.MaxDrinkPrice();
+        }
+
+        public int TMessageCount()
+        {
+            return _statisticsDAL.MessageCount();
+        }
+
+        public int TQuestionCount()
+        {
+            return _statisticsDAL.QuestionCount();
+        }
+
+        public int TSubscriberCount()
+        {
+            return _statisticsDAL.SubscriberCount();
+        }
+
+        public int TTestimonialCount()
+        {
+            return _statisticsDAL.TestimonialCount();
         }
     }
 }

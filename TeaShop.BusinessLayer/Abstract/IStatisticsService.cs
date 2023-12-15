@@ -6,5 +6,9 @@
         decimal TAverageDrinkPrice();
         string TLastDrinkName();
         string TMaxDrinkPrice();
+        int TTestimonialCount();
+        int TQuestionCount();
+        int TMessageCount();
+        int TSubscriberCount();
     }
 }

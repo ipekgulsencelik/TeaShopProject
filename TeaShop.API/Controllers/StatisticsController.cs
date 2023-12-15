@@ -37,5 +37,29 @@ namespace TeaShop.API.Controllers
         {
             return Ok(_statisticsService.TMaxDrinkPrice());
         }
+
+        [HttpGet("GetTestimonialCount")]
+        public IActionResult GetTestimonialCount()
+        {
+            return Ok(_statisticsService.TTestimonialCount());
+        }
+
+        [HttpGet("GetMessageCount")]
+        public IActionResult GetMessageCount()
+        {
+            return Ok(_statisticsService.TMessageCount());
+        }
+
+        [HttpGet("GetQuestionCount")]
+        public IActionResult GetQuestionCount()
+        {
+            return Ok(_statisticsService.TQuestionCount());
+        }
+
+        [HttpGet("GetSubscribeCount")]
+        public IActionResult GetSubscribeCount()
+        {
+            return Ok(_statisticsService.TSubscriberCount());
+        }
     }
 }

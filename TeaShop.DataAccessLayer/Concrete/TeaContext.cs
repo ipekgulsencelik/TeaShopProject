@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using TeaShop.EntityLayer.Concrete;
 
 namespace TeaShop.DataAccessLayer.Concrete
 {
-    public class TeaContext : DbContext
+    public class TeaContext : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,5 +21,6 @@ namespace TeaShop.DataAccessLayer.Concrete
         public DbSet<SocialMedia> SocialMedias { get; set; }
         public DbSet<Subscribe> Subscribes { get; set; }
         public DbSet<Banner> Banners { get; set; }
+        public DbSet<Shop> Shops { get; set; }
     }
 }

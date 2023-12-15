@@ -7,15 +7,15 @@
     <div class="newsletter_left">
         <div class="footer_logo"><img src="~/teab-1.0.0/images/footer-logo.png"></div>
     </div>
-    <div class="newsletter_right">
-        <h5 class="newsletter_taital">Son Gelişmelerden Haberdar Olun!</h5>
-        <div class="subscribe_main">
-            <form asp-controller="Default" asp-action="_SubscribePartial" method="post">
-                <input type="email" class="mail_text" placeholder="Enter your email" asp-for="Mail">
-                <button type="submit" class="btn btn-style btn-primary w3-submit text-right" onclick="subscribe()">Gönder <i class="fas fa-paper-plane ms-2"></i></button>
-            </form>
+    <form asp-controller="Default" asp-action="_SubscribePartial" method="post">
+        <div class="newsletter_right">
+            <h5 class="newsletter_taital">Bültenimize Abone Olun</h5>
+            <div class="subscribe_main">
+                <input type="text" class="mail_text" placeholder="Email Adresinizi Yazın" name="Email">
+                <button class="btn btn-outline-warning" onclick="subscribe()">Abone Ol</button>
+            </div>
         </div>
-    </div>
+    </form>
 </div>
 
 <script>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Net.Http;
 
 namespace TeaShop.WebUI.Areas.Admin.Controllers
 {
@@ -20,19 +19,35 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
             var responseMessage1 = await client.GetAsync("https://localhost:7042/api/Statistics/GetAverageDrinkPrice");
             var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
-            ViewBag.v1 = jsonData1;
+            ViewBag.avgDrinkPrice = jsonData1.ToString().Substring(0, 5); ;
 
             var responseMessage2 = await client.GetAsync("https://localhost:7042/api/Statistics/GetDrinkCount");
             var jsonData2 = await responseMessage2.Content.ReadAsStringAsync();
-            ViewBag.v2 = jsonData2;
+            ViewBag.drinkCount = jsonData2;
 
             var responseMessage3 = await client.GetAsync("https://localhost:7042/api/Statistics/GetLastDrinkName");
             var jsonData3 = await responseMessage3.Content.ReadAsStringAsync();
-            ViewBag.v3 = jsonData3;
+            ViewBag.lastDrinkName = jsonData3;
 
             var responseMessage4 = await client.GetAsync("https://localhost:7042/api/Statistics/GetMaxDrinkPrice");
             var jsonData4 = await responseMessage4.Content.ReadAsStringAsync();
-            ViewBag.v4 = jsonData4;
+            ViewBag.maxPriceDrink = jsonData4.ToString().Substring(0, 5); ;
+
+            var responseMessage5 = await client.GetAsync("https://localhost:7042/api/Statistics/GetTestimonialCount");
+            var jsonData5 = await responseMessage5.Content.ReadAsStringAsync();
+            ViewBag.testimonialCount = jsonData5;
+
+            var responseMessage6 = await client.GetAsync("https://localhost:7042/api/Statistics/GetMessageCount");
+            var jsonData6 = await responseMessage6.Content.ReadAsStringAsync();
+            ViewBag.messageCount = jsonData6;
+
+            var responseMessage7 = await client.GetAsync("https://localhost:7042/api/Statistics/GetQuestionCount");
+            var jsonData7 = await responseMessage7.Content.ReadAsStringAsync();
+            ViewBag.faqCount = jsonData7;
+
+            var responseMessage8 = await client.GetAsync("https://localhost:7042/api/Statistics/GetSubscribeCount");
+            var jsonData8 = await responseMessage8.Content.ReadAsStringAsync();
+            ViewBag.subscribeCount = jsonData8;
 
             return View();
         }

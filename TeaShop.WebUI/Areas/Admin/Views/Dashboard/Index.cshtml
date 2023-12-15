@@ -4,29 +4,47 @@
     Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
 }
 
+<div class="page-header">
+    <div class="page-block">
+        <div class="row align-items-center">
+            <div class="col-md-12">
+                <div class="page-header-title">
+                    <h5 class="m-b-10">Dashboard</h5>
+                </div>
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html"><i class="feather icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- [ breadcrumb ] end -->
+<!-- [ Main Content ] start -->
 <div class="row">
+    <!-- table card-1 start -->
     <div class="col-md-12 col-xl-6">
         <div class="card flat-card">
             <div class="row-table">
                 <div class="col-sm-6 card-body br">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-eye text-c-green mb-1 d-block"></i>
+                            <i class="fas fa-mug-hot text-c-green mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>@ViewBag.v1</h5>
-                            <span>Ortalama Fiyat</span>
+                            <h5>@ViewBag.drinkCount</h5>
+                            <span>İçecek Sayısı</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-music text-c-red mb-1 d-block"></i>
+                            <i class="fas fa-tag text-c-red mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>@ViewBag.v2</h5>
-                            <span>İçecek Sayısı</span>
+                            <h5>@ViewBag.avgDrinkPrice ₺</h5>
+                            <span>Ortalama İçecek Fiyatı</span>
                         </div>
                     </div>
                 </div>
@@ -35,22 +53,22 @@
                 <div class="col-sm-6 card-body br">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-file-text text-c-blue mb-1 d-block"></i>
+                            <i class="fas fa-money-bill-alt text-c-blue mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>@ViewBag.v3</h5>
-                            <span>Son Eklenen İçecek</span>
+                            <h5>@ViewBag.maxPriceDrink</h5>
+                            <span>En Yüksek Fiyatlı İçecek</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-mail text-c-yellow mb-1 d-block"></i>
+                            <i class="fas fa-coffee text-c-yellow mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>@ViewBag.v4</h5>
-                            <span>En Pahalı İçecek</span>
+                            <h5>@ViewBag.lastDrinkName</h5>
+                            <span>Son Eklenen İçecek</span>
                         </div>
                     </div>
                 </div>
@@ -64,34 +82,36 @@
                 </div>
                 <div class="col-sm-9">
                     <h4>4000 +</h4>
-                    <h6>Ratings Received</h6>
+                    <h6>Haftalık Müşteri</h6>
                 </div>
             </div>
         </div>
         <!-- widget primary card end -->
     </div>
+    <!-- table card-1 end -->
+    <!-- table card-2 start -->
     <div class="col-md-12 col-xl-6">
         <div class="card flat-card">
             <div class="row-table">
                 <div class="col-sm-6 card-body br">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-share-2 text-c-blue mb-1 d-block"></i>
+                            <i class="fas fa-quote-left text-c-blue mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>1000</h5>
-                            <span>Shares</span>
+                            <h5>@ViewBag.testimonialCount</h5>
+                            <span>Referans Sayısı</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-wifi text-c-blue mb-1 d-block"></i>
+                            <i class="fas fa-comments text-c-blue mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>600</h5>
-                            <span>Network</span>
+                            <h5>@ViewBag.messageCount</h5>
+                            <span>Mesaj Sayısı</span>
                         </div>
                     </div>
                 </div>
@@ -100,22 +120,22 @@
                 <div class="col-sm-6 card-body br">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-rotate-ccw text-c-blue mb-1 d-block"></i>
+                            <i class="fas fa-question text-c-blue mb-1 d-block"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>3550</h5>
-                            <span>Returns</span>
+                            <h5>@ViewBag.faqCount</h5>
+                            <span>Soru-Cevap Sayısı</span>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 card-body">
                     <div class="row">
                         <div class="col-sm-4">
-                            <i class="icon feather icon-shopping-cart text-c-blue mb-1 d-blockz"></i>
+                            <i class="icon feather icon-mail text-c-blue mb-1 d-blockz"></i>
                         </div>
                         <div class="col-sm-8 text-md-center">
-                            <h5>100%</h5>
-                            <span>Order</span>
+                            <h5>@ViewBag.subscribeCount</h5>
+                            <span>Abone Sayısı</span>
                         </div>
                     </div>
                 </div>
@@ -125,14 +145,75 @@
         <div class="card flat-card widget-purple-card">
             <div class="row-table">
                 <div class="col-sm-3 card-body">
-                    <i class="fas fa-trophy"></i>
+                    <i class="fas fa-tag"></i>
                 </div>
                 <div class="col-sm-9">
                     <h4>17</h4>
-                    <h6>Achievements</h6>
+                    <h6>Şube</h6>
                 </div>
             </div>
         </div>
         <!-- widget-success-card end -->
+    </div>
+    <!-- table card-2 end -->
+    <!-- Widget primary-success card start -->
+    <!-- Widget primary-success card end -->
+    <!-- prject ,team member start -->
+    @await Component.InvokeAsync("_DashboardDrinkListComponentPartial")
+
+    <!-- prject ,team member start -->
+    <!-- seo start -->
+    <div class="col-xl-4 col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <h3>16,756 ₺</h3>
+                        <h6 class="text-muted m-b-0">Haftalık Gelir<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+                    </div>
+                    <div class="col-6">
+                        <div id="seo-chart1" class="d-flex align-items-end"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <h3>49.54%</h3>
+                        <h6 class="text-muted m-b-0">Kar Oranı<i class="fa fa-caret-up text-c-green m-l-10"></i></h6>
+                    </div>
+                    <div class="col-6">
+                        <div id="seo-chart2" class="d-flex align-items-end"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <h3>162</h3>
+                        <h6 class="text-muted m-b-0">Ürün Çeşidi<i class="fa fa-caret-down text-c-red m-l-10"></i></h6>
+                    </div>
+                    <div class="col-6">
+                        <div id="seo-chart3" class="d-flex align-items-end"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- seo end -->
+    <!-- Latest Customers start -->
+    @await Component.InvokeAsync("_DashboardCommentListComponentPartial")
+
+    <!-- Latest Customers end -->
+</div>
+<!-- [ Main Content ] end -->
     </div>
 </div>

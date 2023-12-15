@@ -6,5 +6,9 @@
         decimal AverageDrinkPrice();
         string LastDrinkName();
         string MaxDrinkPrice();
+        int TestimonialCount();
+        int QuestionCount();
+        int MessageCount();
+        int SubscriberCount();
     }
 }

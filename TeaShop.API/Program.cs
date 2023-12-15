@@ -1,8 +1,10 @@
+using TeaShop.API.ValidationRules;
 using TeaShop.BusinessLayer.Abstract;
 using TeaShop.BusinessLayer.Concrete;
 using TeaShop.DataAccessLayer.Abstract;
 using TeaShop.DataAccessLayer.Concrete;
 using TeaShop.DataAccessLayer.EntityFramework;
+using TeaShop.EntityLayer.Concrete;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,9 +42,25 @@ builder.Services.AddScoped<IStatisticsService, StatisticsManager>();
 builder.Services.AddScoped<IBannerDAL, EFBannerDAL>();
 builder.Services.AddScoped<IBannerService, BannerManager>();
 
+builder.Services.AddScoped<IShopDAL, EFShopDAL>();
+builder.Services.AddScoped<IShopService, ShopManager>();
+
 builder.Services.AddDbContext<TeaContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<TeaContext>().AddErrorDescriber<CustomIdentityValidator>();
 
 builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader();
+        });
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -61,5 +79,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AllowAllOrigins");
 
 app.Run();

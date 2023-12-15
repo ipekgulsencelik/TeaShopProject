@@ -43,21 +43,11 @@ namespace TeaShop.DataAccessLayer.EntityFramework
             context.SaveChanges();
         }
 
-        public override bool Equals(object? obj)
-        {
-            return base.Equals(obj);
-        }
-
         public List<Testimonial> GetActiveTestimonials()
         {
             var context = new TeaContext();
             var values = context.Testimonials.Where(x => x.TestimonialStatus == true).ToList();
             return values;
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
         }
 
         public List<Testimonial> GetLast3Testimonials()
@@ -74,11 +64,6 @@ namespace TeaShop.DataAccessLayer.EntityFramework
                 values = context.Testimonials.Where(x => x.TestimonialStatus == true && x.IsHome == true).OrderByDescending(x => x.TestimonialID).Take(3).ToList();
             }
             return values;
-        }
-
-        public override string? ToString()
-        {
-            return base.ToString();
         }
     }
 }
