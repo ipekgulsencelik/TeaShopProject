@@ -1,5 +1,10 @@
 ﻿@model List<TeaShop.WebUI.DTOs.DrinkDTOs.ResultDrinkDTO>
 
+@{
+    var active = "";
+    int count = 1;
+}
+
 <div class="services_section layout_padding">
     <div class="container">
         <h1 class="services_taital">içecek Çeşitlerimiz</h1>
@@ -8,7 +13,17 @@
             <div class="row">
                 @foreach (var item in Model)
                 {
-                    <div class="col-md-6">
+                    if (count == 1)
+                    {
+                        active = "active";
+                        count++;
+                    }
+                    else
+                    {
+                        active = "";
+                    }
+
+                    <div class="col-md-6 @active">
                         <div class="box_main">
                             <div class="left_main">
                                 <div class="cup_img_1"><img src="~/images/@item.DrinkImageURL"></div>

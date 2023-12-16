@@ -480,6 +480,9 @@ namespace TeaShop.DataAccessLayer.Migrations
                     b.Property<string>("ImageURL")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsHome")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("SocialMediaStatus")
                         .HasColumnType("bit");
 

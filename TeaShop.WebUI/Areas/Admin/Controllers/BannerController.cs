@@ -20,7 +20,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Banner";
+			ViewBag.subPage = "Afişler";
+
+			var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7042/api/Banners");
             if (response.IsSuccessStatusCode)
             {
@@ -34,7 +37,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult CreateBanner()
         {
-            return View();
+			ViewBag.page = "Banner";
+			ViewBag.subPage = "Afişler";
+
+			return View();
         }
 
         [HttpPost]
@@ -79,7 +85,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateBanner(int id)
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Banner";
+			ViewBag.subPage = "Afişler";
+
+			var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7042/api/Banners/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {

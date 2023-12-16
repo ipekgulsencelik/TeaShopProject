@@ -17,7 +17,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Message";
+			ViewBag.subPage = "Mesajlar";
+
+			var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7042/api/Messages");
             if (response.IsSuccessStatusCode)
             {
@@ -39,7 +42,7 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ChangeDrinkStatus(int id)
+        public async Task<IActionResult> ChangeMessageStatus(int id)
         {
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7042/api/Messages/ChangeMessageStatus/" + id);
@@ -52,7 +55,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> MessageDetail(int id)
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Message";
+			ViewBag.subPage = "Mesajlar";
+
+			var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7042/api/Messages/" + id);
             if (response.IsSuccessStatusCode)
             {

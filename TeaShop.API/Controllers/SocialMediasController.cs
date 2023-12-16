@@ -30,6 +30,7 @@ namespace TeaShop.API.Controllers
             {
                 ImageURL = createSocialMediaDTO.ImageURL,
                 URL = createSocialMediaDTO.URL,
+                IsHome = createSocialMediaDTO.IsHome,
                 SocialMediaStatus = createSocialMediaDTO.SocialMediaStatus
             };
             _socialMediaService.TInsert(socialMedia);
@@ -58,6 +59,7 @@ namespace TeaShop.API.Controllers
             {
                 ImageURL = updateSocialMediaDTO.ImageURL,
                 URL = updateSocialMediaDTO.URL,
+                IsHome = updateSocialMediaDTO.IsHome,
                 SocialMediaStatus = updateSocialMediaDTO.SocialMediaStatus,
                 SocialMediaID = updateSocialMediaDTO.SocialMediaID
             };
@@ -78,5 +80,12 @@ namespace TeaShop.API.Controllers
             _socialMediaService.TChangeSocialMediaStatus(id);
             return Ok("Sosyal Medya Hesabı Durum Değeri Değiştirildi");
         }
-    }
+
+		[HttpGet("ChangeHomeStatus/{id}")]
+		public IActionResult ChangeHomeStatus(int id)
+		{
+			_socialMediaService.TChangeHomeStatus(id);
+			return Ok("Sosyal Medya Hesabı Ana Sayfa Görünürlüğü Değiştirildi");
+		}
+	}
 }

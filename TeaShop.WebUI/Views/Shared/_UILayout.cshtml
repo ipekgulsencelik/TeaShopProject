@@ -55,6 +55,7 @@
                     <a class="nav-item nav-link" href="pricing.html">Fiyatlar</a>
                     <a class="nav-item nav-link" href="/Testimonial/Index">Referanslar</a>
                     <a class="nav-item nav-link" href="/Contact/Index">İletişim</a>
+                    <a class="nav-item nav-link" href="/Account/Login">Giriş Yap</a>
                 </div>
             </div>
             <div class="login_menu">
@@ -79,7 +80,7 @@
                                     <li><a href="/About/Index">About</a></li>
                                     <li><a href="services.html">Services</a></li>
                                     <li><a href="pricing.html">Pricing</a></li>
-                                    <li><a href="contact.html">Contact us</a></li>
+                                    <li><a href="/Contact/Index">Contact us</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -97,15 +98,7 @@
                         </div>
                         @await Component.InvokeAsync("_UILayoutContactComponentPartial")
                     </div>
-                    <h1 class="follow_text">Follow Us</h1>
-                    <div class="social_icon">
-                        <ul>
-                            <li><a href="#"><img src="~/teab-1.0.0/images/fb-icon.png"></a></li>
-                            <li><a href="#"><img src="~/teab-1.0.0/images/twitter-icon.png"></a></li>
-                            <li><a href="#"><img src="~/teab-1.0.0/images/linkedin-icon.png"></a></li>
-                            <li><a href="#"><img src="~/teab-1.0.0/images/instagram-icon.png"></a></li>
-                        </ul>
-                    </div>
+                    @await Component.InvokeAsync("_UILayoutSocialMediaComponentPartial")
                 </div>
             </div>
         </div>
@@ -114,10 +107,7 @@
         <div class="copyright_section">
             <div class="container">
                 <p class="copyright_text">
-                    Copyright @DateTime.Now.Year All Right Reserved By.<a href="https://html.design">
-                        Free html
-                        Templates
-                    </a> Distributed by. <a href="https://themewagon.com">ThemeWagon</a>
+                    Copyright @DateTime.Now.Year All Right Reserved By.<a href="https://html.design"> Free html Templates </a> Distributed by. <a href="https://themewagon.com">ThemeWagon</a>
                 </p>
                 </p>
             </div>

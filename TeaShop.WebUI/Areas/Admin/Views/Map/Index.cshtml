@@ -45,7 +45,19 @@
 							count++;
 							<tr>
 								<td>@count</td>
-								<td>@item.LocationURL</td>
+								@if (@item.LocationURL == null || @item.LocationURL.Length <= 100)
+								{
+									<td>@item.LocationURL</td>
+								}
+								else
+								{
+									<td>
+										<a href="#" id="LocationBtn"
+										   onclick="return contactLocation('@item.LocationURL', '@item.MapID')">
+											@item.LocationURL.Substring(0, 100)...
+										</a>
+									</td>
+								}
 								<td>
 									@{
 										if (item.MapStatus == true)
@@ -74,6 +86,23 @@
 	</div>
 	<!-- [ sample-page ] end -->
 </div>
+
+<script>
+	function contactLocation(location, id) {
+		Swal.fire({
+			title: 'Konum',
+			text: location,
+			icon: 'success',
+			showCancelButton: true,
+			confirmButtonText: 'Güncelle',
+			cancelButtonText: 'Tamam'
+		}).then((result) => {
+			if (result.isConfirmed) {
+				window.location.href = "/Admin/Map/UpdateMap?id=" + id;
+			}
+		});
+	}
+</script>
 
 <script>
 	function deleteMap(id) {

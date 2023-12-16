@@ -15,7 +15,9 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.subPage = "Dashboard";
+
+			var client = _httpClientFactory.CreateClient();
 
             var responseMessage1 = await client.GetAsync("https://localhost:7042/api/Statistics/GetAverageDrinkPrice");
             var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();

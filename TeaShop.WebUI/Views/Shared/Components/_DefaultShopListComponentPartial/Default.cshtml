@@ -1,0 +1,41 @@
+﻿@model List<TeaShop.WebUI.DTOs.ShopDTOs.ResultShopDTO>
+
+@{
+    var active = "";
+    int count = 1;
+}
+
+<div class="shop_section layout_padding">
+    <div id="my_slider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                if (count == 1)
+                {
+                    active = "active";
+                    count++;
+                }
+                else
+                {
+                    active = "";
+                }
+
+                <div class="carousel-item @active">
+                    <div class="container">
+                        <h1 class="shop_taital">@item.ShopTitle</h1>
+                        <p class="shop_text">
+                            @item.ShopDescription
+                        </p>
+                        <div><img src="~/images/@item.ShopImageURL" class="image_3"></div>
+                    </div>
+                </div>
+            }
+        </div>
+        <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="next">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+            <i class="fa fa-arrow-right" style="text-align: left;"></i>
+        </a>
+    </div>
+</div>

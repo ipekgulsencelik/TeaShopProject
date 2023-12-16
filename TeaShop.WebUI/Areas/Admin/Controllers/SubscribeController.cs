@@ -18,7 +18,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Subscribe";
+			ViewBag.subPage = "Aboneler";
+
+			var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7042/api/Subscribe");
             if (response.IsSuccessStatusCode)
             {
@@ -32,7 +35,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult CreateSubscribe()
         {
-            return View();
+			ViewBag.page = "Subscribe";
+			ViewBag.subPage = "Aboneler";
+
+			return View();
         }
 
         [HttpPost]
@@ -63,7 +69,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateSubscribe(int id)
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Subscribe";
+			ViewBag.subPage = "Aboneler";
+
+			var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7042/api/Subscribe/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {

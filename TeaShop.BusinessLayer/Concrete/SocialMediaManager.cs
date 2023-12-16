@@ -13,7 +13,12 @@ namespace TeaShop.BusinessLayer.Concrete
             _socialMediaDAL = socialMediaDAL;
         }
 
-        public void TChangeSocialMediaStatus(int id)
+		public void TChangeHomeStatus(int id)
+		{
+			_socialMediaDAL.ChangeHomeStatus(id);
+		}
+
+		public void TChangeSocialMediaStatus(int id)
         {
             _socialMediaDAL.ChangeSocialMediaStatus(id);
         }

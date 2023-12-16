@@ -11,7 +11,23 @@ namespace TeaShop.DataAccessLayer.EntityFramework
         {
         }
 
-        public void ChangeSocialMediaStatus(int id)
+		public void ChangeHomeStatus(int id)
+		{
+			var context = new TeaContext();
+			var socialMedia = context.SocialMedias.Where(x => x.SocialMediaID == id).FirstOrDefault();
+			if (socialMedia.IsHome == true)
+			{
+				socialMedia.IsHome = false;
+			}
+			else
+			{
+				socialMedia.IsHome = true;
+			}
+			context.Update(socialMedia);
+			context.SaveChanges();
+		}
+
+		public void ChangeSocialMediaStatus(int id)
         {
             var context = new TeaContext();
             var socialMedia = context.SocialMedias.Where(x => x.SocialMediaID == id).FirstOrDefault();
@@ -30,7 +46,16 @@ namespace TeaShop.DataAccessLayer.EntityFramework
         public List<SocialMedia> GetLast4ActiveSocialMedia()
         {
             var context = new TeaContext();
-            var values = context.SocialMedias.Where(x => x.SocialMediaStatus == true).OrderByDescending(x => x.SocialMediaID).Take(4).ToList();
+            var accountCount = context.SocialMedias.Where(x => x.SocialMediaStatus == true && x.IsHome == true).Count();
+            var values = context.SocialMedias.Where(x => x.SocialMediaStatus == true && x.IsHome == true).ToList();
+            if (accountCount <= 4)
+            {
+                values = context.SocialMedias.Where(x => x.SocialMediaStatus == true && x.IsHome == true).OrderByDescending(x => x.SocialMediaID).ToList();
+            }
+            else
+            {
+                values = context.SocialMedias.Where(x => x.SocialMediaStatus == true && x.IsHome == true).OrderByDescending(x => x.SocialMediaID).Take(4).ToList();
+            }
             return values;
         }
     }

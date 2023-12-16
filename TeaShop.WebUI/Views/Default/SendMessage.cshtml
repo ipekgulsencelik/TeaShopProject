@@ -19,16 +19,15 @@
             <div class="form-group">
                 <textarea class="massage-bt" placeholder="Mesajınızı Yazınız" rows="5" id="comment" asp-for="MessageDetail" /></textarea>
             </div>
-            @* <div class="send_btn">
-                <button class="main_bt"><a href="#" type="submit" onclick="subscribe()">Gönder</a></button>
-            </div> *@
-            <button type="submit" class="btn btn-style btn-primary w3-submit text-right" onclick="subscribe()">Gönder <i class="fas fa-paper-plane ms-2"></i></button>
+            <div class="send_btn">
+                <button class="btn btn-outline-warning" onclick="sendMessage()" type="submit">Gönder</button>
+            </div>
         </form>
     </div>
 </div>
 
 <script>
-    function subscribe() {
+    function sendMessage() {
         Swal.fire({
             title: 'Mailiniz başarılı bir şekilde iletildi.',
             icon: 'success',

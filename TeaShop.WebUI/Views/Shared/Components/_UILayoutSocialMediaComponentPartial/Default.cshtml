@@ -1,0 +1,11 @@
+﻿@model List<TeaShop.WebUI.DTOs.SocialMediaDTOs.ResultSocialMediaDTO>
+
+<h1 class="follow_text">Follow Us</h1>
+<div class="social_icon">
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="@item.URL"><img src="~/images/@item.ImageURL"></a></li>
+        }
+    </ul>
+</div>

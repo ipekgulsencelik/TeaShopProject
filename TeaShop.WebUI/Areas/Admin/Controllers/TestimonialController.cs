@@ -20,6 +20,9 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
 		public async Task<IActionResult> Index()
 		{
+			ViewBag.page = "Testimonial";
+			ViewBag.subPage = "Referanslar";
+
 			var client = _httpClientFactory.CreateClient();
 			var response = await client.GetAsync("https://localhost:7042/api/Testimonial");
 			if (response.IsSuccessStatusCode)
@@ -34,6 +37,9 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 		[HttpGet]
 		public IActionResult CreateTestimonial()
 		{
+			ViewBag.page = "Testimonial";
+			ViewBag.subPage = "Referanslar";
+
 			return View();
 		}
 
@@ -79,6 +85,9 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 		[HttpGet]
 		public async Task<IActionResult> UpdateTestimonial(int id)
 		{
+			ViewBag.page = "Testimonial";
+			ViewBag.subPage = "Referanslar";
+
 			var client = _httpClientFactory.CreateClient();
 			var responseMessage = await client.GetAsync($"https://localhost:7042/api/Testimonial/{id}");
 			if (responseMessage.IsSuccessStatusCode)

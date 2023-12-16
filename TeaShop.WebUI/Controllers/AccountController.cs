@@ -33,7 +33,7 @@ namespace TeaShop.WebUI.Controllers
                 Name = registerViewModel.Name,
                 Surname = registerViewModel.Surname,
                 Email = registerViewModel.Email,
-                UserName = registerViewModel.Name
+                UserName = registerViewModel.Username
             };
 
             var result = await _userManager.CreateAsync(appUser, registerViewModel.Password);

@@ -18,7 +18,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Map";
+			ViewBag.subPage = "Lokasyon";
+
+			var client = _httpClientFactory.CreateClient();
             var response = await client.GetAsync("https://localhost:7042/api/Maps");
             if (response.IsSuccessStatusCode)
             {
@@ -32,7 +35,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult CreateMap()
         {
-            return View();
+			ViewBag.page = "Map";
+			ViewBag.subPage = "Lokasyon";
+
+			return View();
         }
 
         [HttpPost]
@@ -63,7 +69,10 @@ namespace TeaShop.WebUI.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> UpdateMap(int id)
         {
-            var client = _httpClientFactory.CreateClient();
+			ViewBag.page = "Map";
+			ViewBag.subPage = "Lokasyon";
+
+			var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync($"https://localhost:7042/api/Maps/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {

@@ -5,6 +5,7 @@ namespace TeaShop.DataAccessLayer.Abstract
     public interface ISocialMediaDAL : IGenericDAL<SocialMedia>
     {
         void ChangeSocialMediaStatus(int id);
-        List<SocialMedia> GetLast4ActiveSocialMedia();
+		void ChangeHomeStatus(int id);
+		List<SocialMedia> GetLast4ActiveSocialMedia();
     }
 }
